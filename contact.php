@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,12 +20,19 @@
 
         <div>
          <ul id="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a class="active"  href="contact.html">Contact</a></li> <!--ADD PHOTO HERE-->
-            <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li> 
+            <li><a href="index.php">Home</a></li>
+            <li><a href="shop.php">Shop</a></li>
+            <li><a href="blog.php">Blog</a></li>
+
+            <?php if (isset($_SESSION['loggedIn'])){
+                ?><li><a href="PHP_Site/account.php">Account</a></li><?php
+            }
+            else{
+                ?><li><a href="PHP_Site/log_in.php">Account</a></li><?php
+            }?>
+
+            <li><a class="active"  href="contact.php">Contact</a></li> <!--ADD PHOTO HERE-->
+            <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li> 
          </ul>
         
         </div>
@@ -163,22 +172,22 @@
         }
 
         function getBotResponse(userInput) {
-            // Check if the user input contains "Hi" or "Hello"
+            
             if (userInput.toLowerCase().includes("hi") || userInput.toLowerCase().includes("hello")|| userInput.toLowerCase().includes("hey")) {
                 return "Hello, how may I assist you?";
             }
 
-            // Check if the user asks about the refund policy
+
             if (userInput.toLowerCase().includes("refund policy")|| userInput.includes("i want refund")|| userInput.includes("refund")) {
                 return "Our refund policy allows for returns within 15 days of purchase.";
             }
 
-            // Check if the user asks about new orders or purchases
+
             if (userInput.toLowerCase().includes("new") || userInput.toLowerCase().includes("place new order") || userInput.toLowerCase().includes("purchase")) {
                 return "Select---> Shop ---> Select your Items ---> Add To Cart ---> Payment.";
             }
 
-            // Check if the user asks about the replacement policy
+
             if (userInput.toLowerCase().includes("replacement")|| userInput.includes("i want to replace my order")
             || userInput.includes("replace")){
                 return "Our replacement policy allows for the exchange of damaged or defective items within 3 days of purchase.";
@@ -188,7 +197,7 @@
             || userInput.includes("return policy")){
                 return "Our return policy allows for the return on selected items.";
             }
-            // Check if the user asks to talk to the assistant
+
             if (userInput.toLowerCase().includes("talk")|| userInput.includes("call")|| userInput.includes("contact")){
                 return "You can call us on our toll-free number: 1800-123-456.";
             }
@@ -197,7 +206,7 @@
                 return "Your order will be shipped and will be out for delivery soon. You can also track your order on www.onlinedelivery.com";
             }
 
-            // Implement your other chatbot responses here
+    
             if (userInput.includes("cancel") || userInput.includes("i want to cancel my order")|| userInput.includes("cancel my order")) {
                 return "You can cancel your order from the Site or Contact our 24x7 Tech Support team";
             }
@@ -211,9 +220,7 @@
             if (userInput.includes("tech support") || userInput.includes("reset my password") || userInput.includes("add items to my cart")) {
                 return "For technical assistance, please contact our support team.";
             }
-            // You can add more responses based on user input.
-
-            // Default response if no match is found
+   
             return "I'm sorry, I don't have information about that. How can I assist you with anything else? Or you can call us on our toll-free number: 1800-123-456. ";
         }
      

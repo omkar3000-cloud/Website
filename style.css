@@ -35,6 +35,10 @@ color: #465b52;
 margin: 15px 0 20px 0;
 }
 
+img {
+    border-radius: 5%;
+  }
+
 .section-p1 {
     padding: 40px 80px;
 }
@@ -718,3 +722,19 @@ z-index: -9;
         padding: 10px;
         font-size: 13px;
     }
+
+.centered-title {
+        text-align: center;
+        margin: 0 auto;
+        width: 50%;
+}
+
+.first{
+    float: left;
+    
+}
+
+.second {
+    float: right;
+ 
+}

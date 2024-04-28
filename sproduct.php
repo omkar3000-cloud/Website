@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,12 +20,19 @@
 
         <div>
          <ul id="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a class="active" href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li> <!--ADD PHOTO HERE-->
-            <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li> 
+            <li><a href="index.php">Home</a></li>
+            <li><a class="active" href="shop.php">Shop</a></li>
+            <li><a href="blog.php">Blog</a></li>
+
+            <?php if (isset($_SESSION['loggedIn'])){
+                ?><li><a href="PHP_Site/account.php">Account</a></li><?php
+            }
+            else{
+                ?><li><a href="PHP_Site/log_in.php">Account</a></li><?php
+            }?>
+
+            <li><a href="contact.php">Contact</a></li> <!--ADD PHOTO HERE-->
+            <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li> 
          </ul>
         
         </div>

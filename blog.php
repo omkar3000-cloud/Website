@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php session_start(); ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,12 +20,19 @@
 
         <div>
          <ul id="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a class="active" href="blog.html">Blog</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li> <!--ADD PHOTO HERE-->
-            <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li> 
+            <li><a href="index.php">Home</a></li>
+            <li><a href="shop.php">Shop</a></li>
+            <li><a class="active" href="blog.php">Blog</a></li>
+
+            <?php if (isset($_SESSION['loggedIn'])){
+                ?><li><a href="PHP_Site/account.php">Account</a></li><?php
+            }
+            else{
+                ?><li><a href="PHP_Site/log_in.php">Account</a></li><?php
+            }?>
+
+            <li><a href="contact.php">Contact</a></li> <!--ADD PHOTO HERE-->
+            <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li> 
          </ul>
         
         </div>
@@ -33,17 +42,17 @@
       
       <h2>#readmore</h2>
      
-      <p>read all case studies about our products</p>
+      <p><b>Read all case studies about our products</b></p>
      
 
     </section>
 
     <section id="blog">
         <div class="blog-box">
-            <div class="blof-img">
-                <img src="Images/Blogs/b1.jpg" alt="">
+            <div class="blof-img" style="margin-top: 25px;">
+                <img src="Images\Blog\b1.jpg" alt="">
             </div>
-            <div class="blog-details">
+            <div class="blog-details" style="padding: 5px;">
                 <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
                 <p>
                 </p>
@@ -55,10 +64,10 @@
 
     <section id="blog">
         <div class="blog-box">
-            <div class="blof-img">
-                <img src="Images/Blogs/b2.jpg" alt="">
+            <div class="blof-img" style="margin-top: 25px;">
+                <img src="Images/Blog/b2.jpg" alt="">
             </div>
-            <div class="blog-details">
+            <div class="blog-details" style="padding: 5px;">
                 <h4>How to Style a Quiff</h4>
                 <p>
                 </p>
@@ -70,10 +79,10 @@
 
     <section id="blog">
         <div class="blog-box">
-            <div class="blof-img">
-                <img src="Images/Blogs/b3.jpg" alt="">
+            <div class="blof-img" style="margin-top: 25px;">
+                <img src="Images/Blog/b3.jpg" alt="">
             </div>
-            <div class="blog-details">
+            <div class="blog-details" style="padding: 5px;">
                 <h4>Must-have Skater Girl Items</h4>
                 <p>
                 </p>
