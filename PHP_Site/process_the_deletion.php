@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $conn->close();
 
-    header("location:sign_up.php"); 
+    header("location:log_in.php"); 
 
 }
 
