@@ -10,7 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $stmt = mysqli_query($conn, "DELETE FROM users WHERE user_password='$user_passwd';") or die("Query Failed");
 
-    session_abort();
+    $_SESSION['loggedIn'] = False;
+    session_destroy();
 
     $conn->close();
 
